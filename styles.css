@@ -5,12 +5,12 @@ html {
 /* Tipografía */
 @font-face {
   font-family: 'CopperplateCustom';
-  src: url('/Fuentes/Copperplate.otf') format('opentype');
+  src: url('Fuentes/Copperplate.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'OptimaCustom';
-  src: url('/Fuentes/OPTIMA.TTF') format('opentype');
+  src: url('Fuentes/OPTIMA.TTF') format('opentype');
 }
 :root {
   --color-principal: #6c5050;
@@ -115,7 +115,7 @@ section {
   margin-bottom: 3rem;
 }
 .hero {
-  background-image: url("/imagenes/inicio.png");
+  background-image: url("imagenes/inicio.png");
   background-size: cover;
   background-position: center;
   height: 80vh;
@@ -187,7 +187,7 @@ main {
 }
 /* Propósito */
 .proposito {
-  background-image: url("/imagenes/proposito.png");
+  background-image: url("imagenes/proposito.png");
   background-size: cover;
   background-position: center;
   color: #fff;
