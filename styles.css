@@ -194,6 +194,7 @@ main {
   padding: 4rem 2rem;
   text-align: justify;
   margin-bottom: 0;
+  font-family: 'Copperplate', serif;
 }
 
 .proposito h2 {
@@ -215,6 +216,7 @@ main {
 }
 .proposito p {
   font-size: 0.95rem;
+  font-family: "Optima", sans-serif;
 }
 
 .valores {
