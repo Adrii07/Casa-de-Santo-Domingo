@@ -1,369 +1,381 @@
-/* ---------------- FUENTES ---------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tipografía */
 @font-face {
-    font-family: 'CopperplateCustom';
-    src: url('Fuentes/Copperplate.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'OptimaCustom';
-    src: url('Fuentes/OPTIMA.TTF') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* ---------------- ESTILOS GENERALES ---------------- */
-  body {
-    margin: 0;
-    font-family: 'OptimaCustom', 'Optima', 'Segoe UI', sans-serif;
-    color: #333;
-  }
-  
-  h1, h2, h3, h4 {
-    font-family: 'CopperplateCustom', 'Copperplate Gothic Light', 'Copperplate', serif;
-  }
-  
-  .linea-naranja {
-    width: 120px;
-    height: 3px;
-    background-color: #F48474;
-    margin: 1rem 0;
-  }
-  
-  /* ---------------- HEADER ---------------- */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    height: 140px;
-    object-fit: contain;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
+  font-family: 'CopperplateCustom';
+  src: url('/Fuentes/Copperplate.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'OptimaCustom';
+  src: url('/Fuentes/OPTIMA.TTF') format('opentype');
+}
+:root {
+  --color-principal: #6c5050;
+  --color-secundario: #f48474;
+  --color-clarito: #f0e3b1;
+  --blanco: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Optima', sans-serif;
+  color: var(--color-principal);
+}
+
+/* Header fijo */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  margin: 0;
+  max-height: 70px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Menú */
+nav ul.menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #6c5050;
+  font-family: 'Copperplate', serif;
+  transition: color 0.5s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #f48474;
+}
+
+/* Submenú */
+.submenu {
+  position: relative;
+}
+
+.submenu-items {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.submenu:hover .submenu-items {
+  display: block;
+}
+
+.submenu-items li {
+  padding: 0.5rem 1rem;
+}
+
+.submenu-items a {
+  color: #6c5050;
+  display: block;
+}
+
+.submenu-items a:hover {
+  background: #f0e3b1;
+  color: #f48474;
+}
+
+/* Hero */
+section {
+  margin-bottom: 3rem;
+}
+.hero {
+  background-image: url("/imagenes/inicio.png");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.hero-texto p {
+  color: #6c5050;
+  font-family: 'Copperplate', serif;
+  font-size: 1.8rem;
+  text-align: justify;
+  max-width: 600px;
+}
+main {
+  padding: 7rem 2rem 2rem;
+}
+.nosotros {
+  padding: 1rem;
+  background: #fff;
+  font-family: 'Copperplate', serif;
+}
+
+.contenido-nosotros {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contenido-nosotros img {
+  max-width: 400px;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.texto-nosotros {
+  flex: 1;
+  min-width: 300px;
+}
+
+.texto-nosotros h1 {
+  font-family: 'Copperplate', serif;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.texto-nosotros h2 {
+  font-size: 1rem;
+  color: #6c5050;
+  margin-bottom: 0.5rem;
+  font-family: 'Copperplate', serif;
+}
+
+.texto-nosotros p {
+  line-height: 1.6;
+  text-align: justify;
+  font-family: "Optima", sans-serif;
+}
+
+/* Línea decorativa */
+.linea-naranja {
+  height: 1px;
+  background-color: #F48474;
+  margin: 1.5rem 0;
+}
+/* Propósito */
+.proposito {
+  background-image: url("/imagenes/proposito.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+.proposito h2 {
+  font-family: 'Copperplate', serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.proposito {
+  padding: 2rem;
+}
+
+.proposito h2 {
+  font-size: 1.2rem;
+}
+.proposito .linea {
+  height: 1px;
+  background: #f0e3b1;
+  margin: 1.5rem 0;
+}
+.proposito p {
+  font-size: 0.95rem;
+}
+
+.valores {
+  display: flex;
+  justify-content: center; /* Centra los elementos si hay espacio extra */
+  gap: 5rem; /* Ajusta este valor según lo que necesites */
+  padding-top: 2rem;
+  list-style: none;
+  color: #fff;
+  text-align: center;
+}
+
+.bloques {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bloques .bloque h3,
+.bloques .valores h3 {
+  font-family: 'Copperplate', serif;
+  color: #f0e3b1;
+  margin-bottom: 0.5rem;
+}
+.valores {
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+}
+
+.bloques p {
+  font-family: 'Optima', sans-serif;
+  line-height: 1.5;
+}
+
+.socios {
+  background: #6c5050;
+  padding-top: 1rem;
+  margin-bottom: 0;
+  font-family: "Optima", sans-serif;
+}
+
+.socios h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #f0e3b1;
+  padding-bottom: 1rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-family: "Copperplate", serif;
+}
+
+.contenedor-socio {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  overflow: hidden;
+}
+.contenedor-socio:nth-child(odd) {
+  background-color: #6c5050;
+  color: var(--blanco);
+}
+
+.contenedor-socio:nth-child(even) {
+  background-color: #ffffff;
+  color: var(--blanco);
+}
+.contenedor-socio img {
+  width: 40%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+.bio {
+  flex: 1;
+  padding: 2rem;
+  text-align: justify;
+  color: #6c5050;
+}
+
+.bio h3 {
+  font-family: "Copperplate", serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #f48474;
+  padding-bottom: 0.3rem;
+  color: inherit;
+}
+.stefan h3 {
+  font-family: "Copperplate", serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #f48474;
+  padding-bottom: 0.3rem;
+  color: var(--blanco);
+}
+.bio h4 {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stefan h4 {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color:#ffffff;
+}
+.bio p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-principal);
+}
+.stefan p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--blanco);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
   nav ul.menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+    flex-direction: column;
+    gap: 1rem;
   }
-  
-  nav ul.menu > li {
-    position: relative;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #6c5050;
-    font-weight: 400;
-    font-family: 'OptimaCustom', sans-serif;
-  }
-  
-  nav a:hover,
-  nav a.active {
-    color: #F48474;
-  }
-  
+
   .submenu-items {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    padding: 0.5rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    min-width: 180px;
+    position: relative;
+    box-shadow: none;
   }
-  
-  .submenu:hover .submenu-items {
-    display: block;
-  }
-  
-  .submenu-items li {
-    padding: 0.5rem 1rem;
-  }
-  
-  .submenu-items li a {
-    display: block;
-    color: #6c5050;
-  }
-  
-  .submenu-items li a:hover {
-    background-color: #ffffff;
-    color: #F48474;
-  }
-  
-  /* ---------------- SECCIÓN INICIO ---------------- */
-  .inicio {
-    background-image: url('imagenes/inicio.png');
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 5%;
-  }
-  
-  .texto-inicio p {
-    max-width: 500px;
-    font-size: 1.5rem;
-    color: #6c5050;
-    text-align: justify;
-    text-transform: uppercase;
-    line-height: 2;
-  }
-  
-  /* ---------------- SECCIÓN PROPÓSITO ---------------- */
-  .proposito {
-    background-image: url('imagenes/proposito.png');
-    background-size: cover;
-    background-position: center;
-    padding: 4rem 3rem;
-    color: #ffffff;
-  }
-  
-  .proposito h2 {
-    text-transform: uppercase;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .proposito .linea {
-    height: 1px;
-    background: #f0e3b1;
-    margin: 1.5rem 0;
-  }
-  
-  .proposito h3 {
-    margin-top: 2rem;
-    text-transform: uppercase;
-  }
-  
-  .proposito p {
-    max-width: 900px;
-    line-height: 1.6;
-  }
-  
-  .valores {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem;
-    list-style: none;
-    color: #ffffff;
+
+  .hero-texto h1 {
+    font-size: 1.2rem;
     text-align: center;
   }
-  
-  /* ---------------- SECCIÓN NOSOTROS ---------------- */
-  .nosotros {
-    padding: 3rem;
-    background-color: #fff;
+
+  .bloques {
+    flex-direction: column;
   }
-  
-  .contenido-nosotros {
-    display: flex;
+
+  header {
+    flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
-    flex-wrap: wrap;
   }
-  
-  .contenido-nosotros img {
-    max-width: 400px;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-  }
-  
-  .texto-nosotros {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .texto-nosotros h1 {
-    margin-top: 0;
-    font-size: 1.5rem;
-  }
-  
-  .texto-nosotros h2 {
-    font-size: 1.2rem;
-    color: #6c5050;
+
+  .logo {
     margin-bottom: 1rem;
   }
-  
-  .texto-nosotros p {
-    line-height: 1.6;
-    text-align: justify;
-  }
-  
-  /* ---------------- SECCIÓN SOCIOS ---------------- */
-  .socios {
-    display: flex;
-    flex-direction: column;
-    background: #6c5050;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .socios h2 {
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #f0e3b1;
-    padding-bottom: 1rem;
-    color: #ffffff;
-  }
-  
   .contenedor-socio {
-    display: flex;
-    margin-top: 2rem;
-    background-color: #ffffff;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
   }
-  
+
   .contenedor-socio img {
-    max-width: 300px;
+    width: 100%;
+    max-width: 100%;
     height: auto;
-    border-radius: 5px;
   }
-  
-  .bio {
-    padding: 1rem;
-  }
-  
-  .bio h3 {
-    text-transform: uppercase;
-    color: #6c5050;
-    border-bottom: 2px solid #F48474;
-    padding-bottom: 0.5rem;
-  }
-  
-  .bio h4 {
-    margin-top: 0.5rem;
-    color: #6c5050;
-  }
-  
-  .bio p {
-    line-height: 1.6;
-  }
-  
-  /* ---------------- RESPONSIVE ---------------- */
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem;
-    }
-  
-    .logo img {
-      height: 80px;
-    }
-  
-    nav {
-      width: 100%;
-    }
-  
-    .menu {
-      flex-direction: column;
-      width: 100%;
-      gap: 1rem;
-      padding-top: 1rem;
-    }
-  
-    .menu > li {
-      width: 100%;
-    }
-  
-    .menu a {
-      display: block;
-      padding: 0.5rem 1rem;
-      width: 100%;
-    }
-  
-    .submenu-items {
-      position: relative;
-      box-shadow: none;
-      background: #ffffff;
-      margin-left: 1rem;
-      min-width: auto;
-    }
-  
-    .submenu-items li a {
-      padding-left: 1rem;
-    }
-  
-    .inicio {
-      height: auto;
-      padding: 2rem;
-      justify-content: center;
-      text-align: center;
-    }
-  
-    .texto-inicio p {
-      font-size: 1.2rem;
-    }
-  
-    .proposito {
-      padding: 2rem;
-    }
-  
-    .proposito h2 {
-      font-size: 1.2rem;
-    }
-  
-    .proposito p {
-      font-size: 0.95rem;
-    }
-  
-    .valores {
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-  
-    .contenido-nosotros {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .contenido-nosotros img {
-      max-width: 100%;
-      margin-bottom: 1.5rem;
-    }
-  
-    .texto-nosotros {
-      text-align: justify;
-      padding: 0 1rem;
-    }
-  
-    .texto-nosotros h1,
-    .texto-nosotros h2 {
-      text-align: center;
-    }
-  }
-  
-/*Imagen de fondo no responsiva, arreglar.
-Pendiente imagen de fondo
-Conseguir header fijo*/
+}
+/* Imágenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
